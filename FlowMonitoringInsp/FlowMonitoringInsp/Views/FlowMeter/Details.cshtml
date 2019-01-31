@@ -1,0 +1,26 @@
+﻿@model FlowMonitoringInsp.Models.Site
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Site</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ManholeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ManholeID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SiteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

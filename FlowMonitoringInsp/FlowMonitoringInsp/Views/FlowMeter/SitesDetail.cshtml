@@ -1,0 +1,76 @@
+﻿@model FlowMonitoringInsp.Models.Site
+
+@{
+    ViewBag.Title = "Sites View";
+}
+
+<h2>Sites View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ManholeID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManholeID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SiteID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SiteID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SiteID })
+            </td>
+        </tr>
+    }
+
+    @foreach (FlowMonitoringInsp.Models.FlowMeter fm in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => fm.FMModel)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = fm.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = fm.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = fm.ID })
+            </td>
+        </tr>
+    }
+
+    @foreach (FlowMonitoringInsp.Models.Sensor sensor in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => sensor.Sensor_Type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = sensor.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = sensor.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = sensor.ID })
+            </td>
+        </tr>
+    }
+
+    @foreach (FlowMonitoringInsp.Models.Telog telog in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => telog.TelogID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = telog.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = telog.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = telog.ID })
+            </td>
+        </tr>
+    }
+
+</table>

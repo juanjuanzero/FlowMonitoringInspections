@@ -15,5 +15,6 @@ namespace FlowMonitoringInsp.Models
         public int FlowMeterModelID { get; set; }
         public FM_model FMModel { get; set; }
         public int SerialNumber { get; set; }
+        public int SiteId { get; set; }
     }
 }

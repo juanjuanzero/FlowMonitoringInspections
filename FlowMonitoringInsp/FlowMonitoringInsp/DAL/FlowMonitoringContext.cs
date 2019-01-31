@@ -13,5 +13,6 @@ namespace FlowMonitoringInsp.DAL
         public DbSet<Models.Manhole> manholes { get; set; }
         public DbSet<Models.Sensor> Sensors { get; set; }
         public DbSet<Models.Telog> telogs { get; set; }
+        public DbSet<Models.Site> sites { get; set; }
     }
 }

@@ -12,5 +12,6 @@ namespace FlowMonitoringInsp.Models
         public int ID { get; set; }
         public int TelogID { get; set; }
         public string Modem { get; set; }
+        public int SiteID { get; set; }
     }
 }

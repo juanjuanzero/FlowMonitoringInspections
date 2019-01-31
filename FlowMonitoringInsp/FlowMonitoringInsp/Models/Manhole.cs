@@ -15,5 +15,6 @@ namespace FlowMonitoringInsp.Models
         public float H2S { get; set; }
         public float Oxygen { get; set; }
         public float LEL { get; set; }
+        public int SiteID { get; set; }
     }
 } 
