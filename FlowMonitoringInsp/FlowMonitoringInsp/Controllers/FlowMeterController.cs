@@ -36,7 +36,7 @@ namespace FlowMonitoringInsp.Controllers
                     SiteTelogs = _telogs
                 };
 
-                return View("SiteDetail", _site);
+                return View("SiteDetails", _site);
             }
             else {
                 return View();

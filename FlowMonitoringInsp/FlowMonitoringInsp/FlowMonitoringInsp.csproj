@@ -206,7 +206,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\FlowMeter\SitesDetail.cshtml" />
+    <Content Include="Views\FlowMeter\SiteDetails.cshtml" />
     <Content Include="Views\FlowMeter\Details.cshtml" />
     <Content Include="Views\FlowMeter\AllSites.cshtml" />
   </ItemGroup>

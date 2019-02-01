@@ -137,6 +137,23 @@ namespace FlowMonitoringInsp.DAL
             context.SaveChanges();
 
             //make sure to modify the webconfig file
+
+            var _site = new List<Models.Site>
+            {
+                new Models.Site
+                {
+                    SiteID = 1,
+                    ManholeID = 1
+                },
+                new Models.Site
+                {
+                    SiteID = 2,
+                    ManholeID = 3
+                }
+            };
+
+            _site.ForEach(m => context.sites.Add(m));
+            context.SaveChanges();
         }
     }
 }
