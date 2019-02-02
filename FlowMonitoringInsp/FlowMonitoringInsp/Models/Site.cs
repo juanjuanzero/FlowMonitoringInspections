@@ -10,9 +10,18 @@ namespace FlowMonitoringInsp.Models
     {
         [Key]
         public int SiteID { get; set; }
-        public IEnumerable<Models.Telog> SiteTelogs { get; set; }
-        public IEnumerable<Models.FlowMeter> SiteFlowMeters { get; set; }
-        public IEnumerable<Models.Sensor> SiteSensors { get; set; }
-        public int ManholeID { get; set; }
+        
+        //list of ids will be passed into view model and constructed by site detail
+        public List<int> SiteFlowMeterIDs {get; set; }
+        public List<int> SiteSensorIDs { get; set; }
+
+        //properties for display purposes, but how would it get these values?
+        public int SiteTelogID { get; set; }
+        public string SiteManhole { get; set; }
+
+        public string SiteDisplayName
+        {
+            get{ return SiteTelogID.ToString() + " at " + SiteManhole; }
+        }
     }
 }

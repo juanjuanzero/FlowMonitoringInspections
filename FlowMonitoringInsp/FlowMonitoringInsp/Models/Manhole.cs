@@ -8,9 +8,12 @@ namespace FlowMonitoringInsp.Models
 {
     public class Manhole
     {
+        
+        //public int ID { get; set; }
+
         [Key]
-        public int ID { get; set; } //id for db
-        public string ManholeID { get; set; }
+        public int ManholeID { get; set; }
+        public string ManholeName { get; set; }
         public bool HeavyTraffic { get; set; }
         public float H2S { get; set; }
         public float Oxygen { get; set; }

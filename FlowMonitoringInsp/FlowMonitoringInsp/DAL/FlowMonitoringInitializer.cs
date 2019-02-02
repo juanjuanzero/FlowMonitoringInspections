@@ -54,8 +54,8 @@ namespace FlowMonitoringInsp.DAL
             {
                 new Models.Manhole
                 {
-                    ID = 1,
-                    ManholeID = "MH0001",
+                    ManholeID = 1,
+                    ManholeName = "MH0001",
                     H2S = 10,
                     HeavyTraffic = true,
                     LEL = 12,
@@ -64,8 +64,8 @@ namespace FlowMonitoringInsp.DAL
                 },
                 new Models.Manhole
                 {
-                    ID = 2,
-                    ManholeID = "MH0002",
+                    ManholeID = 2,
+                    ManholeName = "MH0002",
                     H2S = 10,
                     HeavyTraffic = true,
                     LEL = 16,
@@ -74,8 +74,8 @@ namespace FlowMonitoringInsp.DAL
                 },
                 new Models.Manhole
                 {
-                    ID = 3,
-                    ManholeID = "MH0003",
+                    ManholeID = 3,
+                    ManholeName = "MH0003",
                     H2S = 11,
                     HeavyTraffic = true,
                     LEL = 15,
@@ -119,14 +119,14 @@ namespace FlowMonitoringInsp.DAL
             {
                 new Models.Telog
                 {
-                    ID = 1,
+                    
                     Modem = "LTE",
                     SiteID = 1,
                     TelogID = 1234
                 },
                 new Models.Telog
                 {
-                    ID = 2,
+                    
                     Modem = "Prepaid",
                     SiteID = 2,
                     TelogID = 5678
@@ -143,12 +143,14 @@ namespace FlowMonitoringInsp.DAL
                 new Models.Site
                 {
                     SiteID = 1,
-                    ManholeID = 1
+                    SiteTelogID = 1234,
+                    SiteManhole = "MH0001"
                 },
                 new Models.Site
                 {
                     SiteID = 2,
-                    ManholeID = 3
+                    SiteTelogID = 5678,
+                    SiteManhole = "MH0003"
                 }
             };
 

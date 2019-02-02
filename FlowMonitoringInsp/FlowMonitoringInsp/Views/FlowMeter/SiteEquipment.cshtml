@@ -1,0 +1,74 @@
+﻿@model FlowMonitoringInsp.Models.SiteView
+@{
+    ViewBag.Title = "Site Equipment";
+}
+
+<h2>@Html.Display(Model.SiteDisplayName) Equipment</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Manhole
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.SiteManhole.ManholeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.SiteManhole.ManholeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.SiteManhole.ManholeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = Model.SiteManhole.ManholeID })
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Site Flow Meters
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (FlowMonitoringInsp.Models.FlowMeter fm in Model.SiteFlowMeters)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => fm.FMModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => fm.SerialNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = fm.FlowMeterModelID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = fm.FlowMeterModelID })
+            </td>
+        </tr>
+    }
+
+    <tr>
+        <th>
+            Site Sensors
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (FlowMonitoringInsp.Models.Sensor sn in Model.SiteSensors)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => sn.Sensor_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => sn.SensorSerialNum)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = sn.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = sn.ID })
+            </td>
+        </tr>
+    }
+
+
+</table>

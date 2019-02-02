@@ -1,10 +1,15 @@
 # FlowMonitoringInspections
 An MVC project to track inspections at different sites throught the system
 
+DESIGN
+*when a manhole and a telog is set together, that makes a SITE
+*a SITE can have a list of equipment, consisting of flow meters, and sensors.
+
 TODO
 *Add Connection String to WebConfig File (done)
-*Change the data model from site to other models of the data.
-*Add Views for Showing Site Attributes. 
+*Change the data model from site to other models of the data. (done)
+*fix siteview model for manhole edits. (done)
+*Add Views for Showing Site Attributes. (done)
 *Run the Project and Test Functionality
 *Introduct EF Migrations
 

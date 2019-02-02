@@ -164,6 +164,7 @@
     <Compile Include="Models\Manhole.cs" />
     <Compile Include="Models\Sensor.cs" />
     <Compile Include="Models\Site.cs" />
+    <Compile Include="Models\SiteView.cs" />
     <Compile Include="Models\Telog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -206,9 +207,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\FlowMeter\SiteDetails.cshtml" />
     <Content Include="Views\FlowMeter\Details.cshtml" />
     <Content Include="Views\FlowMeter\AllSites.cshtml" />
+    <Content Include="Views\FlowMeter\SiteEquipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
