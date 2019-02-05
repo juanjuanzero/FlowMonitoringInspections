@@ -23,7 +23,7 @@
             @Html.DisplayFor(modelItem => item.SiteDisplayName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.SiteID }) |
+            @Html.ActionLink("Edit", "SiteEdit", new { id = item.SiteID }) |
             @Html.ActionLink("Details", "Details", new { id = item.SiteID }) |
             @Html.ActionLink("Delete", "Delete", new { id = item.SiteID })  |
             @Html.ActionLink("Equipment", "SiteDetails", new { id = item.SiteID })

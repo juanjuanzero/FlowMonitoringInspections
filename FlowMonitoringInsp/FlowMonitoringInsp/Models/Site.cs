@@ -17,11 +17,11 @@ namespace FlowMonitoringInsp.Models
 
         //properties for display purposes, but how would it get these values?
         public int SiteTelogID { get; set; }
-        public string SiteManhole { get; set; }
+        public string Address { get; set; }
 
         public string SiteDisplayName
         {
-            get{ return SiteTelogID.ToString() + " at " + SiteManhole; }
+            get{ return SiteTelogID.ToString() + " at " + Address; }
         }
     }
 }

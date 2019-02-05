@@ -39,7 +39,7 @@ namespace FlowMonitoringInsp.DAL
                     FlowMeterModelID = 3333,
                     SerialNumber = 516515,
                     FMModel = Models.FlowMeter.FM_model.ISCO,
-                    SiteId = 3
+                    SiteId = 2
                 }
             };
 
@@ -70,7 +70,7 @@ namespace FlowMonitoringInsp.DAL
                     HeavyTraffic = true,
                     LEL = 16,
                     Oxygen = 100,
-                    SiteID = 3
+                    SiteID = 2
                 },
                 new Models.Manhole
                 {
@@ -99,14 +99,14 @@ namespace FlowMonitoringInsp.DAL
                 new Models.Sensor
                 {
                     ID = 2,
-                    SiteID = 3,
+                    SiteID = 2,
                     SensorSerialNum = "SN5678",
                     Sensor_Type = Models.Sensor.SensorType.Level
                 },
                 new Models.Sensor
                 {
                     ID = 3,
-                    SiteID = 3,
+                    SiteID = 2,
                     SensorSerialNum = "SN91011",
                     Sensor_Type = Models.Sensor.SensorType.Lazer
                 }
@@ -144,13 +144,13 @@ namespace FlowMonitoringInsp.DAL
                 {
                     SiteID = 1,
                     SiteTelogID = 1234,
-                    SiteManhole = "MH0001"
+                    Address = "1234 Stree Ave"
                 },
                 new Models.Site
                 {
                     SiteID = 2,
                     SiteTelogID = 5678,
-                    SiteManhole = "MH0003"
+                    Address = "867 FiveThreeONine"
                 }
             };
 

@@ -8,7 +8,7 @@ namespace FlowMonitoringInsp.Models
 {
     public class FlowMeter
     {
-        public enum FM_model { Hach, ISCO, Telog, Other}
+        public enum FM_model { Hach, ISCO, Telog, Teledyne,Other}
 
         [Key]
         public int ID { get; set; } //Id for db

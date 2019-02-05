@@ -155,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FlowMeterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SiteController.cs" />
     <Compile Include="DAL\FlowMonitoringContext.cs" />
     <Compile Include="DAL\FlowMonitoringInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,8 +209,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\FlowMeter\Details.cshtml" />
-    <Content Include="Views\FlowMeter\AllSites.cshtml" />
-    <Content Include="Views\FlowMeter\SiteEquipment.cshtml" />
+    <Content Include="Views\Site\AllSites.cshtml" />
+    <Content Include="Views\Site\SiteEquipment.cshtml" />
+    <Content Include="Views\Site\SiteEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
