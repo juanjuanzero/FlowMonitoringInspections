@@ -2,20 +2,22 @@
 An MVC project to track inspections at different sites throught the system
 
 DESIGN
-*when a manhole and a telog is set together, that makes a SITE
-*a SITE can have a list of equipment, consisting of flow meters, and sensors.
+* when a manhole and a telog is set together, that makes a SITE
+* a SITE can have a list of equipment, consisting of flow meters, and sensors.
 
 TODO
-* Add Connection String to WebConfig File (done)
-* Change the data model from site to other models of the data. (done)
-* fix siteview model for manhole edits. (done)
-* Add Views for Showing Site Attributes. (done)
-* Add Create View Page for each entity (done)
-* Bug, when there are no equipment on the site, the view should not be called up.
+* ~~Add Connection String to WebConfig File (done)~~
+* ~~Change the data model from site to other models of the data. (done)~~
+* ~~fix siteview model for manhole edits. (done)~~
+* ~~Add Views for Showing Site Attributes. (done)~~
+* ~~Add Create View Page for each entity (done)~~
+* ~~Bug, when there are no equipment on the site, the view should not be called up. (done)~~
 * Add Edit Page for each entity
-... * Edit Page for Site entity (done)
-* Run the Project and Test Functionality
-* Introduct EF Migrations
+* Route Newly created edit/add pages to each entity
+* Create delete method for each entity
+* ~~Edit Page for Site entity (done)~~
+
+* Introduce EF Migrations
 * need to make error view (done)
 
 QUESTIONS:
@@ -24,8 +26,8 @@ QUESTIONS:
 * What is a strongly typed view?
 * What does the connection string look like? What are it's attributes?
 * Why should you check if the model state is valid?
-...* Its for making sure, before you add it to the db, the you have added the correct value for that feild and if it passed all of the validation that you defined.
-...* further reading: https://www.exceptionnotfound.net/asp-net-mvc-demystified-modelstate/
+* Its for making sure, before you add it to the db, the you have added the correct value for that feild and if it passed all of the validation that you defined.
+* further reading: https://www.exceptionnotfound.net/asp-net-mvc-demystified-modelstate/
 
 THINGS I LEARNED (AGAIN):
 * DbSet == table in db
