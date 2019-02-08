@@ -12,37 +12,60 @@
         </th>
         <th></th>
     </tr>
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => modelItem.SiteManhole.ManholeID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => modelItem.SiteManhole.ManholeName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.SiteManhole.ManholeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = Model.SiteManhole.ManholeID })
-        </td>
-    </tr>
+    @if (Model.SiteManhole != null)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.SiteManhole.ManholeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => modelItem.SiteManhole.ManholeName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.SiteManhole.ManholeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = Model.SiteManhole.ManholeID })
+            </td>
+        </tr>
+    }
+    else
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Assign a Manhole", "Edit")
+            </td>
+        </tr>
+    }
+
+
     <tr>
         <th>
             Site Flow Meters
         </th>
         <th></th>
     </tr>
-
-    @foreach (FlowMonitoringInsp.Models.FlowMeter fm in Model.SiteFlowMeters)
+    @if (Model.SiteFlowMeters.Count() > 0)
+    {
+        foreach (FlowMonitoringInsp.Models.FlowMeter fm in Model.SiteFlowMeters)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => fm.FMModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => fm.SerialNumber)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = fm.FlowMeterModelID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = fm.FlowMeterModelID })
+                </td>
+            </tr>
+        }
+    }
+    else
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => fm.FMModel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => fm.SerialNumber)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = fm.FlowMeterModelID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = fm.FlowMeterModelID })
+                @Html.ActionLink("Add Flowmeter", "Edit")
             </td>
         </tr>
     }
@@ -54,21 +77,31 @@
         <th></th>
     </tr>
 
-    @foreach (FlowMonitoringInsp.Models.Sensor sn in Model.SiteSensors)
+    @if (Model.SiteSensors.Count() > 0)
+    {
+        foreach (FlowMonitoringInsp.Models.Sensor sn in Model.SiteSensors)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => sn.Sensor_Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => sn.SensorSerialNum)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = sn.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = sn.ID })
+                </td>
+            </tr>
+        }
+    }
+    else
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => sn.Sensor_Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => sn.SensorSerialNum)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = sn.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = sn.ID })
-            </td>
+            <td>@Html.ActionLink("Add Site Sensor", "Edit")</td>
         </tr>
     }
+
 
 
 </table>

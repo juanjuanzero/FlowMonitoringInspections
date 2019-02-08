@@ -10,7 +10,8 @@ TODO
 * Change the data model from site to other models of the data. (done)
 * fix siteview model for manhole edits. (done)
 * Add Views for Showing Site Attributes. (done)
-* Add Create View Page for each entity
+* Add Create View Page for each entity (done)
+* Bug, when there are no equipment on the site, the view should not be called up.
 * Add Edit Page for each entity
 ... * Edit Page for Site entity (done)
 * Run the Project and Test Functionality

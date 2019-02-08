@@ -79,5 +79,32 @@ namespace FlowMonitoringInsp.Controllers
             //if model state was not valid, call the edit view again.
             return View("SiteEdit",_site );
         }
+
+        public ActionResult SiteAdd()
+        {
+            Models.Site _site = new Models.Site();
+            return View("SiteEdit", _site);
+        }
+
+        [HttpPost]
+        public ActionResult SiteAdd(Models.Site _site)
+        {
+            
+            //create a new site
+            Models.Site _addSite = new Models.Site()
+            {
+                Address = _site.Address,
+                SiteFlowMeterIDs = _site.SiteFlowMeterIDs,
+                SiteSensorIDs = _site.SiteSensorIDs,
+                SiteTelogID = _site.SiteTelogID
+            };
+
+            database.sites.Add(_addSite);
+            database.SaveChanges();
+
+            //when adding go back to the list
+            var _sites = database.sites.ToList();
+            return View("AllSites", _sites);
+        }
     }
 }
