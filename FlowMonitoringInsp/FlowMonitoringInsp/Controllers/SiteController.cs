@@ -36,6 +36,7 @@ namespace FlowMonitoringInsp.Controllers
                 var _site = new Models.SiteView
                 {
                     //find the flow meters associated to the site.
+                    SiteID = (int)id,
                     SiteFlowMeters = _flowmeters,
                     SiteSensors = _sensors,
                     SiteTelogs = _telogs,
@@ -93,6 +94,7 @@ namespace FlowMonitoringInsp.Controllers
             //create a new site
             Models.Site _addSite = new Models.Site()
             {
+                //by setting the model attirbutes manually, we are preventing over-posting an alternative way is to use the BindAttribute 
                 Address = _site.Address,
                 SiteFlowMeterIDs = _site.SiteFlowMeterIDs,
                 SiteSensorIDs = _site.SiteSensorIDs,

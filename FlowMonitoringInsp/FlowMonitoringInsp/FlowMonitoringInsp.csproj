@@ -155,7 +155,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FlowMeterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManholeController.cs" />
+    <Compile Include="Controllers\SensorController.cs" />
     <Compile Include="Controllers\SiteController.cs" />
+    <Compile Include="Controllers\TelogController.cs" />
     <Compile Include="DAL\FlowMonitoringContext.cs" />
     <Compile Include="DAL\FlowMonitoringInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -208,10 +211,29 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\FlowMeter\Details.cshtml" />
     <Content Include="Views\Site\AllSites.cshtml" />
     <Content Include="Views\Site\SiteEquipment.cshtml" />
     <Content Include="Views\Site\SiteEdit.cshtml" />
+    <Content Include="Views\FlowMeter\Create.cshtml" />
+    <Content Include="Views\FlowMeter\Delete.cshtml" />
+    <Content Include="Views\FlowMeter\Details.cshtml" />
+    <Content Include="Views\FlowMeter\Edit.cshtml" />
+    <Content Include="Views\FlowMeter\Index.cshtml" />
+    <Content Include="Views\Manhole\Create.cshtml" />
+    <Content Include="Views\Manhole\Delete.cshtml" />
+    <Content Include="Views\Manhole\Details.cshtml" />
+    <Content Include="Views\Manhole\Edit.cshtml" />
+    <Content Include="Views\Manhole\Index.cshtml" />
+    <Content Include="Views\Sensor\Create.cshtml" />
+    <Content Include="Views\Sensor\Delete.cshtml" />
+    <Content Include="Views\Sensor\Details.cshtml" />
+    <Content Include="Views\Sensor\Edit.cshtml" />
+    <Content Include="Views\Sensor\Index.cshtml" />
+    <Content Include="Views\Telog\Create.cshtml" />
+    <Content Include="Views\Telog\Delete.cshtml" />
+    <Content Include="Views\Telog\Details.cshtml" />
+    <Content Include="Views\Telog\Edit.cshtml" />
+    <Content Include="Views\Telog\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

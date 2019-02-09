@@ -11,108 +11,109 @@ using FlowMonitoringInsp.Models;
 
 namespace FlowMonitoringInsp.Controllers
 {
-    public class FlowMeterController : Controller
+    public class ManholeController : Controller
     {
         private FlowMonitoringContext db = new FlowMonitoringContext();
 
-        // GET: FlowMeter
+        // GET: Manhole
         public ActionResult Index()
         {
-            return View(db.flowMeters.ToList());
+            return View(db.manholes.ToList());
         }
 
-        // GET: FlowMeter/Details/5
+        // GET: Manhole/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FlowMeter flowMeter = db.flowMeters.Find(id);
-            if (flowMeter == null)
+            Manhole manhole = db.manholes.Find(id);
+            if (manhole == null)
             {
                 return HttpNotFound();
             }
-            return View(flowMeter);
+            return View(manhole);
         }
 
-        // GET: FlowMeter/Create
+        // GET: Manhole/Create
         public ActionResult Create(int? number)
         {
-            Models.FlowMeter flowMeter = new Models.FlowMeter { SiteId = (int)number };
-            return View("Create", flowMeter);
+            //passing a manhole with the site for association.
+            Models.Manhole manhole = new Models.Manhole { SiteID = (int)number};
+            return View("Create",manhole);
         }
 
-        // POST: FlowMeter/Create
+        // POST: Manhole/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FlowMeterModelID,FMModel,SerialNumber,SiteId")] FlowMeter flowMeter)
+        public ActionResult Create([Bind(Include = "ManholeID,ManholeName,HeavyTraffic,H2S,Oxygen,LEL,SiteID")] Manhole manhole)
         {
             if (ModelState.IsValid)
             {
-                db.flowMeters.Add(flowMeter);
+                db.manholes.Add(manhole);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(flowMeter);
+            return View(manhole);
         }
 
-        // GET: FlowMeter/Edit/5
+        // GET: Manhole/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FlowMeter flowMeter = db.flowMeters.Find(id);
-            if (flowMeter == null)
+            Manhole manhole = db.manholes.Find(id);
+            if (manhole == null)
             {
                 return HttpNotFound();
             }
-            return View(flowMeter);
+            return View(manhole);
         }
 
-        // POST: FlowMeter/Edit/5
+        // POST: Manhole/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FlowMeterModelID,FMModel,SerialNumber,SiteId")] FlowMeter flowMeter)
+        public ActionResult Edit([Bind(Include = "ManholeID,ManholeName,HeavyTraffic,H2S,Oxygen,LEL,SiteID")] Manhole manhole)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(flowMeter).State = EntityState.Modified;
+                db.Entry(manhole).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(flowMeter);
+            return View(manhole);
         }
 
-        // GET: FlowMeter/Delete/5
+        // GET: Manhole/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FlowMeter flowMeter = db.flowMeters.Find(id);
-            if (flowMeter == null)
+            Manhole manhole = db.manholes.Find(id);
+            if (manhole == null)
             {
                 return HttpNotFound();
             }
-            return View(flowMeter);
+            return View(manhole);
         }
 
-        // POST: FlowMeter/Delete/5
+        // POST: Manhole/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            FlowMeter flowMeter = db.flowMeters.Find(id);
-            db.flowMeters.Remove(flowMeter);
+            Manhole manhole = db.manholes.Find(id);
+            db.manholes.Remove(manhole);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

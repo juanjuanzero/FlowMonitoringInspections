@@ -1,0 +1,42 @@
+﻿@model FlowMonitoringInsp.Models.Sensor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sensor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SensorSerialNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SensorSerialNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sensor_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sensor_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

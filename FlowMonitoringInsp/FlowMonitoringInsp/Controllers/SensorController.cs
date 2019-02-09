@@ -11,108 +11,108 @@ using FlowMonitoringInsp.Models;
 
 namespace FlowMonitoringInsp.Controllers
 {
-    public class FlowMeterController : Controller
+    public class SensorController : Controller
     {
         private FlowMonitoringContext db = new FlowMonitoringContext();
 
-        // GET: FlowMeter
+        // GET: Sensor
         public ActionResult Index()
         {
-            return View(db.flowMeters.ToList());
+            return View(db.Sensors.ToList());
         }
 
-        // GET: FlowMeter/Details/5
+        // GET: Sensor/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FlowMeter flowMeter = db.flowMeters.Find(id);
-            if (flowMeter == null)
+            Sensor sensor = db.Sensors.Find(id);
+            if (sensor == null)
             {
                 return HttpNotFound();
             }
-            return View(flowMeter);
+            return View(sensor);
         }
 
-        // GET: FlowMeter/Create
+        // GET: Sensor/Create
         public ActionResult Create(int? number)
         {
-            Models.FlowMeter flowMeter = new Models.FlowMeter { SiteId = (int)number };
-            return View("Create", flowMeter);
+            Models.Sensor sensor = new Models.Sensor { SiteID = (int)number };
+            return View("Create", sensor);
         }
 
-        // POST: FlowMeter/Create
+        // POST: Sensor/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FlowMeterModelID,FMModel,SerialNumber,SiteId")] FlowMeter flowMeter)
+        public ActionResult Create([Bind(Include = "ID,SensorSerialNum,Sensor_Type,SiteID")] Sensor sensor)
         {
             if (ModelState.IsValid)
             {
-                db.flowMeters.Add(flowMeter);
+                db.Sensors.Add(sensor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(flowMeter);
+            return View(sensor);
         }
 
-        // GET: FlowMeter/Edit/5
+        // GET: Sensor/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FlowMeter flowMeter = db.flowMeters.Find(id);
-            if (flowMeter == null)
+            Sensor sensor = db.Sensors.Find(id);
+            if (sensor == null)
             {
                 return HttpNotFound();
             }
-            return View(flowMeter);
+            return View(sensor);
         }
 
-        // POST: FlowMeter/Edit/5
+        // POST: Sensor/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FlowMeterModelID,FMModel,SerialNumber,SiteId")] FlowMeter flowMeter)
+        public ActionResult Edit([Bind(Include = "ID,SensorSerialNum,Sensor_Type,SiteID")] Sensor sensor)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(flowMeter).State = EntityState.Modified;
+                db.Entry(sensor).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(flowMeter);
+            return View(sensor);
         }
 
-        // GET: FlowMeter/Delete/5
+        // GET: Sensor/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FlowMeter flowMeter = db.flowMeters.Find(id);
-            if (flowMeter == null)
+            Sensor sensor = db.Sensors.Find(id);
+            if (sensor == null)
             {
                 return HttpNotFound();
             }
-            return View(flowMeter);
+            return View(sensor);
         }
 
-        // POST: FlowMeter/Delete/5
+        // POST: Sensor/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            FlowMeter flowMeter = db.flowMeters.Find(id);
-            db.flowMeters.Remove(flowMeter);
+            Sensor sensor = db.Sensors.Find(id);
+            db.Sensors.Remove(sensor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

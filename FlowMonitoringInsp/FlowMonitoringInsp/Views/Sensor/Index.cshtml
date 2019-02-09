@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FlowMonitoringInsp.Models.Sensor>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SensorSerialNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sensor_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SensorSerialNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sensor_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiteID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

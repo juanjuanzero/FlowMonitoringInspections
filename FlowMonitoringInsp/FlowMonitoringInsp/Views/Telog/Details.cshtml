@@ -1,0 +1,42 @@
+﻿@model FlowMonitoringInsp.Models.Telog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Telog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TelogName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelogName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SiteID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SiteID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TelogID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
