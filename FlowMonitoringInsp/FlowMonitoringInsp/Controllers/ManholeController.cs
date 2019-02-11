@@ -55,7 +55,9 @@ namespace FlowMonitoringInsp.Controllers
             {
                 db.manholes.Add(manhole);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //Once it has been added we want to call the sitedetails method
+
+                return RedirectToRoute(new { controller = "Site", id = manhole.SiteID, action = "SiteDetails"  });
             }
 
             return View(manhole);

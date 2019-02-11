@@ -13,9 +13,10 @@ An MVC project to track inspections at different sites throught the system
 * ~~Add Views for Showing Site Attributes. (done)~~
 * ~~Add Create View Page for each entity (done)~~
 * ~~Bug, when there are no equipment on the site, the view should not be called up. (done)~~
-* Add Edit Page for each entity (Flow Meter, Telog, Sensor, Manhole)
-* Route Newly created edit/add pages to each entity
-* Create delete method for each entity
+* ~~Add Edit Page for each entity (Flow Meter, Telog, Sensor, Manhole) (done)~~
+* When creating/add a new equipment for the site, route the view that is returned back to the site equipment view.
+* Going from Manhole to the other equipment
+* Create delete method for site
 * ~~Edit Page for Site entity (done)~~
 * Introduce EF Migrations
 * need to make error view (done)
@@ -26,7 +27,7 @@ An MVC project to track inspections at different sites throught the system
 * What is a strongly typed view?
 * What does the connection string look like? What are it's attributes?
 * Why should you check if the model state is valid? ```because you don't want to save to the db if the data going into the model is invalid. Its for making sure, before you add it to the db, the you have added the correct value for that feild and if it passed all of the validation that you defined.```
-* further reading: https://www.exceptionnotfound.net/asp-net-mvc-demystified-modelstate/
+* Further reading: https://www.exceptionnotfound.net/asp-net-mvc-demystified-modelstate/
 * ELI5 over-posting: Its when you have an attribute in your model that you dont want to be set by a view, like ID or a secret attribute. Ways to handle this include using the BindAttribute with Include, Using a ViewModel or specifying the attribute assignments in the db.
 
 # THINGS I LEARNED (AGAIN):

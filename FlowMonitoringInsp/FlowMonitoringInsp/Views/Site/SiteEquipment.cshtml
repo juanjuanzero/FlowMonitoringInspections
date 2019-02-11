@@ -31,7 +31,7 @@
     {
         <tr>
             <td>
-                @Html.ActionLink("Assign a Manhole", "Create", new {controller = "Manhole", action = "Create", number = Model.SiteID})
+                @Html.ActionLink("Assign a Manhole", "Create", new { controller = "Manhole", action = "Create", number = Model.SiteID })
             </td>
         </tr>
     }
@@ -59,17 +59,14 @@
                     @Html.ActionLink("Delete", "Delete", new { id = fm.FlowMeterModelID })
                 </td>
             </tr>
+
         }
     }
-    else
-    {
-        <tr>
-            <td>
-                @Html.ActionLink("Add Flowmeter", "Create", new { controller = "FlowMeter", action = "Create", number = Model.SiteID })
-            </td>
-        </tr>
-    }
-
+    <tr>
+        <td>
+            @Html.ActionLink("Add Flowmeter", "Create", new { controller = "FlowMeter", action = "Create", number = Model.SiteID })
+        </td>
+    </tr>
     <tr>
         <th>
             Site Sensors
@@ -93,15 +90,12 @@
                     @Html.ActionLink("Delete", "Delete", new { id = sn.ID })
                 </td>
             </tr>
+
         }
     }
-    else
-    {
-        <tr>
-            <td>@Html.ActionLink("Add Site Sensor", "Create", new { controller = "Sensor", action = "Create", number = Model.SiteID })</td>
-        </tr>
-    }
-
+    <tr>
+        <td>@Html.ActionLink("Add Site Sensor", "Create", new { controller = "Sensor", action = "Create", number = Model.SiteID })</td>
+    </tr>
 
 
 </table>
