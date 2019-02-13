@@ -54,7 +54,7 @@ namespace FlowMonitoringInsp.Controllers
             {
                 db.Sensors.Add(sensor);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id= sensor.SiteID});
             }
 
             return View(sensor);
@@ -86,7 +86,8 @@ namespace FlowMonitoringInsp.Controllers
             {
                 db.Entry(sensor).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id = sensor.SiteID });
             }
             return View(sensor);
         }
@@ -114,7 +115,8 @@ namespace FlowMonitoringInsp.Controllers
             Sensor sensor = db.Sensors.Find(id);
             db.Sensors.Remove(sensor);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id = sensor.SiteID });
         }
 
         protected override void Dispose(bool disposing)

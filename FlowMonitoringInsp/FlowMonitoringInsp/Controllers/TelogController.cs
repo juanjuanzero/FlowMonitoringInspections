@@ -54,7 +54,7 @@ namespace FlowMonitoringInsp.Controllers
             {
                 db.telogs.Add(telog);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id=telog.SiteID });
             }
 
             return View(telog);
@@ -86,7 +86,8 @@ namespace FlowMonitoringInsp.Controllers
             {
                 db.Entry(telog).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id = telog.SiteID });
             }
             return View(telog);
         }
@@ -114,7 +115,8 @@ namespace FlowMonitoringInsp.Controllers
             Telog telog = db.telogs.Find(id);
             db.telogs.Remove(telog);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id = telog.SiteID });
         }
 
         protected override void Dispose(bool disposing)

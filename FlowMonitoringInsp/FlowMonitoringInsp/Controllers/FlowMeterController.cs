@@ -48,13 +48,13 @@ namespace FlowMonitoringInsp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FlowMeterModelID,FMModel,SerialNumber,SiteId")] FlowMeter flowMeter)
+        public ActionResult Create([Bind(Include = "FlowMeterModelID,FMModel,SerialNumber,SiteId")] FlowMeter flowMeter)
         {
             if (ModelState.IsValid)
             {
                 db.flowMeters.Add(flowMeter);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id = flowMeter.SiteId });
             }
 
             return View(flowMeter);
@@ -86,7 +86,8 @@ namespace FlowMonitoringInsp.Controllers
             {
                 db.Entry(flowMeter).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id = flowMeter.SiteId });
             }
             return View(flowMeter);
         }
@@ -114,7 +115,7 @@ namespace FlowMonitoringInsp.Controllers
             FlowMeter flowMeter = db.flowMeters.Find(id);
             db.flowMeters.Remove(flowMeter);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToRoute(new { controller = "Site", action = "SiteDetails", id = flowMeter.SiteId });
         }
 
         protected override void Dispose(bool disposing)

@@ -3,7 +3,7 @@
     ViewBag.Title = "Site Equipment";
 }
 
-<h2>@Html.Display(Model.SiteDisplayName) Equipment</h2>
+<h2>@(ViewBag.Sitename)</h2>
 
 <table class="table">
     <tr>
@@ -22,8 +22,8 @@
                 @Html.DisplayFor(modelItem => modelItem.SiteManhole.ManholeName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.SiteManhole.ManholeID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = Model.SiteManhole.ManholeID })
+                @Html.ActionLink("Edit", "Edit", new { controller="Manhole", id = Model.SiteManhole.ManholeID }) |
+                @Html.ActionLink("Delete", "Delete", new { controller="Manhole",id = Model.SiteManhole.ManholeID })
             </td>
         </tr>
     }
@@ -35,7 +35,36 @@
             </td>
         </tr>
     }
+    <tr>
+        <th>
+            Site Telogs
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.SiteTelogs.Count() > 0)
+    {
+        foreach (FlowMonitoringInsp.Models.Telog telog in Model.SiteTelogs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => telog.TelogName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => telog.TelogName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {controller="Telog", id = telog.TelogID }) |
+                    @Html.ActionLink("Delete", "Delete", new { controller = "Telog", id = telog.TelogID })
+                </td>
+            </tr>
 
+        }
+    }
+    <tr>
+        <td>
+            @Html.ActionLink("Add Telog", "Create", new { controller = "Telog", action = "Create", number = Model.SiteID })
+        </td>
+    </tr>
 
     <tr>
         <th>
@@ -55,8 +84,8 @@
                     @Html.DisplayFor(modelItem => fm.SerialNumber)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = fm.FlowMeterModelID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = fm.FlowMeterModelID })
+                    @Html.ActionLink("Edit", "Edit", new {controller="Flowmeter", id = fm.FlowMeterModelID }) |
+                    @Html.ActionLink("Delete", "Delete", new { controller = "Flowmeter", id = fm.FlowMeterModelID })
                 </td>
             </tr>
 
@@ -86,8 +115,8 @@
                     @Html.DisplayFor(modelItem => sn.SensorSerialNum)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = sn.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = sn.ID })
+                    @Html.ActionLink("Edit", "Edit", new {controller="Sensor", id = sn.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { controller = "Sensor", id = sn.ID })
                 </td>
             </tr>
 
@@ -99,3 +128,5 @@
 
 
 </table>
+
+<h4>@Html.ActionLink("Back to All Sites", "Index")</h4>

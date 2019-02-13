@@ -49,7 +49,7 @@ namespace FlowMonitoringInsp.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ManholeID,ManholeName,HeavyTraffic,H2S,Oxygen,LEL,SiteID")] Manhole manhole)
+        public ActionResult Create([Bind(Include = "ManholeName,HeavyTraffic,H2S,Oxygen,LEL,SiteID")] Manhole manhole)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,8 @@ namespace FlowMonitoringInsp.Controllers
             {
                 db.Entry(manhole).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //return RedirectToAction("Index");
+                return RedirectToRoute(new { controller = "Site", id = manhole.SiteID, action = "SiteDetails" });
             }
             return View(manhole);
         }
@@ -117,7 +118,8 @@ namespace FlowMonitoringInsp.Controllers
             Manhole manhole = db.manholes.Find(id);
             db.manholes.Remove(manhole);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            return RedirectToRoute(new { controller = "Site", id = manhole.SiteID, action = "SiteDetails" });
         }
 
         protected override void Dispose(bool disposing)
