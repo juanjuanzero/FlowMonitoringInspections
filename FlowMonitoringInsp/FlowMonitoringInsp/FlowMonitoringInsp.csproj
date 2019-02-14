@@ -234,6 +234,7 @@
     <Content Include="Views\Telog\Details.cshtml" />
     <Content Include="Views\Telog\Edit.cshtml" />
     <Content Include="Views\Telog\Index.cshtml" />
+    <Content Include="Views\Site\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

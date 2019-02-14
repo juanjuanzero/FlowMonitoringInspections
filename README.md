@@ -14,8 +14,8 @@ An MVC project to track inspections at different sites throught the system
 * ~~Add Create View Page for each entity (done)~~
 * ~~Bug, when there are no equipment on the site, the view should not be called up. (done)~~
 * ~~Add Edit Page for each entity (Flow Meter, Telog, Sensor, Manhole) (done)~~
-* When creating/add a new equipment for the site, route the view that is returned back to the site equipment view.
-* Going from Manhole to the other equipment
+* ~~When creating/add a new equipment for the site, route the view that is returned back to the site equipment view.~~
+*~~Going from Manhole to the other equipment~~
 * Create delete method for site
 * ~~Edit Page for Site entity (done)~~
 * Introduce EF Migrations

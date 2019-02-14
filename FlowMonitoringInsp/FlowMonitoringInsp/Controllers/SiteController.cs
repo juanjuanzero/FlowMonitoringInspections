@@ -108,5 +108,68 @@ namespace FlowMonitoringInsp.Controllers
             var _sites = database.sites.ToList();
             return View("AllSites", _sites);
         }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id != null)
+            {
+                //calling the delete from the All Sites view will pass in the id of the iste
+                Models.Site _site = database.sites.Find(id);
+                //return the delete confirmation page
+                return View("Delete", _site);
+            }
+
+            return View("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(Models.Site site)
+        {
+            if (ModelState.IsValid)
+            {
+                //removed the site from the db
+                Models.Site _site = database.sites.Find((int)site.SiteID);
+                database.sites.Remove(_site);
+                database.SaveChanges();
+
+                //also remove equipment that has this assigned.
+                IEnumerable<Models.FlowMeter> _flowmeters = database.flowMeters.Where(m => m.SiteId == site.SiteID);
+                IEnumerable<Models.Sensor> _sensors = database.Sensors.Where(m => m.SiteID == site.SiteID);
+                IEnumerable<Models.Telog> _telogs = database.telogs.Where(m => m.SiteID == site.SiteID);
+                Models.Manhole manhole = database.manholes.Where(m => m.SiteID == site.SiteID).FirstOrDefault();
+
+                foreach (var f in _flowmeters)
+                {
+                    Models.FlowMeter flowMeter = database.flowMeters.Find(f.ID);
+                    database.flowMeters.Remove(flowMeter);
+                }
+                database.SaveChanges();
+
+                foreach (var s in _sensors)
+                {
+                    Models.Sensor sensor = database.Sensors.Find(s.ID);
+                    database.Sensors.Remove(sensor);
+                }
+                database.SaveChanges();
+
+                foreach (var t in _telogs)
+                {
+                    Models.Telog telog = database.telogs.Find(t.TelogID);
+                    database.telogs.Remove(telog);
+                }
+                database.SaveChanges();
+
+                Models.Manhole mh = database.manholes.Find(manhole.ManholeID);
+                database.manholes.Remove(mh);
+                database.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return View("Delete", site);
+        }
+
+
     }
 }
